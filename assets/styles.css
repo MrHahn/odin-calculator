@@ -1,0 +1,34 @@
+.calculator {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+.calculator-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calculator-buttons .calculator-numbers {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.calculator-buttons .calculator-numbers button {
+    flex-basis: 33%;
+    width: 33%;
+}
+.calculator-buttons .calculator-operator {
+    display: flex;
+    flex-direction: column;
+}
+.calculator-numbers button {
+    height: 26.1px;
+}
+.calculator-screen {
+    border: 1px solid;
+    margin: 0 38px;
+    height: 40px;
+    font-size: 36px;
+    text-align: right;
+}
