@@ -7,6 +7,7 @@ let operator;
 let needsCleared;
 
 const equals = document.querySelector('.equals');
+const clearBtn = document.querySelector('.btn-clear');
 
 const numberButtons = document.querySelectorAll('.calculator-numbers button');
 const operatorButtons = document.querySelectorAll('.calculator-operator button');
@@ -53,6 +54,9 @@ function updateDisplay(data){
 }
 
 function getNumbers(){
+    // if(this.dataset.num == 'clear'){
+    //     return;
+    // }
     if(needsCleared){
         display.textContent = '';
         needsCleared = false;
@@ -77,6 +81,14 @@ function getOperator(){
     needsCleared = true;
 }
 
+function clearDisplay(){
+    display.textContent = ''
+    firstNum = '';
+    secondNum = '';
+    operator = '';
+    needsCleared = false;
+}
+
 
 numberButtons.forEach(button => button.addEventListener('click', getNumbers));
 
@@ -85,3 +97,5 @@ operatorButtons.forEach(button => button.addEventListener('click', getOperator )
 equals.addEventListener('click', function(){
     operate(firstNum, secondNum, operator);
 })
+
+clearBtn.addEventListener('click', clearDisplay);
