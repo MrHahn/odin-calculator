@@ -4,7 +4,10 @@ let secondNum;
 
 let operator; 
 
+let needsCleared;
+
 const numberButtons = document.querySelectorAll('.calculator-numbers button');
+const operatorButtons = document.querySelectorAll('.calculator-operator button');
 let display = document.querySelector('.calculator-screen span');
 
 function add(a, b){
@@ -28,13 +31,13 @@ function divide(a, b){
 
 function operate(num1, num2, operator){
     switch(operator) {
-        case "+":
+        case "add":
             return add(num1, num2);
-        case "-":
+        case "subtract":
             return subtract(num1, num2);
-        case "*":
+        case "multiply":
             return multiply(num1, num2);
-        case "/":
+        case "divide":
             return divide(num1, num2);
     }
 }
@@ -43,20 +46,29 @@ function updateDisplay(data){
     display.textContent += data;
 }
 
-function gatherData(){
-    // on every number button click, fire event listener and append (+=) the numbers to eachother in the display
+function getNumbers(){
+    if(needsCleared){
+        display.textContent = '';
+        needsCleared = false;
+    }
     updateDisplay(parseInt(this.dataset.num));
 
-
-    // when an operator button is clicked, set the value in the display to the first variable and set the operation
-    // to the operator variable
-
-    // on same event listener for number buttons, check if first num variable is filled, if so, clear the display first
-    // then add the new number.
-
-    // when equals is pressed, this will pass the variables into the operate function and display the returned value to the 
-    // display
+    if(firstNum && operator){
+        secondNum = display.textContent;
+        console.log('secondNum:' + secondNum);
+    }
 }
 
 
-numberButtons.forEach(button => button.addEventListener('click', gatherData));
+function assignFirstHalf(){
+    firstNum = display.textContent;
+        console.log('firstNum:' + firstNum);
+    operator = this.dataset.oper;
+    console.log(operator);
+    needsCleared = true;
+}
+
+
+numberButtons.forEach(button => button.addEventListener('click', getNumbers));
+
+operatorButtons.forEach(button => button.addEventListener('click', assignFirstHalf ));
