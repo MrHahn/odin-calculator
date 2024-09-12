@@ -1,14 +1,6 @@
-let firstNum;
-
-let secondNum;
-
-let operator; 
-
-let needsCleared;
-
+let firstNum, secondNum, operator, needsCleared;
 const equals = document.querySelector('.equals');
 const clearBtn = document.querySelector('.btn-clear');
-
 const numberButtons = document.querySelectorAll('.calculator-numbers button');
 const operatorButtons = document.querySelectorAll('.calculator-operator button');
 let display = document.querySelector('.calculator-screen span');
@@ -63,11 +55,11 @@ function getNumbers(){
         display.textContent = '';
         needsCleared = false;
     }
+
     updateDisplay(this.dataset.num);
 
-    if(firstNum && operator){
+    if((firstNum && operator) || (firstNum === 0 && operator)){
         secondNum = parseFloat(display.textContent);
-        console.log('secondNum:' + secondNum);
     }
 }
 
@@ -77,9 +69,7 @@ function getOperator(){
         return;
     }
     firstNum = parseFloat(display.textContent);
-        console.log('firstNum:' + firstNum);
     operator = this.dataset.oper;
-    console.log(operator);
     needsCleared = true;
 }
 
@@ -96,8 +86,8 @@ numberButtons.forEach(button => button.addEventListener('click', getNumbers));
 
 operatorButtons.forEach(button => button.addEventListener('click', getOperator ));
 
+clearBtn.addEventListener('click', clearDisplay);
+
 equals.addEventListener('click', function(){
     operate(firstNum, secondNum, operator);
 })
-
-clearBtn.addEventListener('click', clearDisplay);
