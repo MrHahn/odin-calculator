@@ -50,21 +50,23 @@ function operate(num1, num2, operator){
 }
 
 function updateDisplay(data){
-    display.textContent += data;
+    if(data == '.'){
+        display.textContent += data;
+    }else{
+        display.textContent += data;
+    }
+    
 }
 
 function getNumbers(){
-    // if(this.dataset.num == 'clear'){
-    //     return;
-    // }
     if(needsCleared){
         display.textContent = '';
         needsCleared = false;
     }
-    updateDisplay(parseInt(this.dataset.num));
+    updateDisplay(this.dataset.num);
 
     if(firstNum && operator){
-        secondNum = parseInt(display.textContent);
+        secondNum = parseFloat(display.textContent);
         console.log('secondNum:' + secondNum);
     }
 }
@@ -74,7 +76,7 @@ function getOperator(){
     if(this.dataset.oper == 'equals'){
         return;
     }
-    firstNum = parseInt(display.textContent);
+    firstNum = parseFloat(display.textContent);
         console.log('firstNum:' + firstNum);
     operator = this.dataset.oper;
     console.log(operator);
