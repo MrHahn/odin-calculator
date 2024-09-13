@@ -43,7 +43,11 @@ function operate(num1, num2, operator){
 
 function updateDisplay(data){
     if(data == '.'){
-        display.textContent += data;
+        if(display.textContent.includes('.')){
+            console.log('already has .');
+        }else{
+            display.textContent += data;
+        } 
     }else{
         display.textContent += data;
     }
