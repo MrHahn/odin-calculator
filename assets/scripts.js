@@ -60,6 +60,10 @@ function getNumbers(){
         needsCleared = false;
     }
 
+    if(this.dataset.num == 'equals'){
+        return;
+    }
+
     updateDisplay(this.dataset.num);
 
     if((firstNum && operator) || (firstNum === 0 && operator)){
@@ -69,9 +73,6 @@ function getNumbers(){
 
 
 function getOperator(){
-    if(this.dataset.oper == 'equals'){
-        return;
-    }
     firstNum = parseFloat(display.textContent);
     operator = this.dataset.oper;
     needsCleared = true;
