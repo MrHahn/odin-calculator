@@ -22,8 +22,9 @@
     display: flex;
     flex-direction: column;
 }
-.calculator-numbers button {
-    height: 26.1px;
+.calculator-numbers button,
+.calculator-operator button {
+    height: 26px;
 }
 .calculator-screen {
     border: 1px solid;
@@ -31,4 +32,19 @@
     height: 40px;
     font-size: 36px;
     text-align: right;
+}
+.calculator-misc {
+    margin: 0 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.calculator-misc button {
+    flex-basis: 50%;
+}
+.calculator-buttons > .calculator-operator {
+    flex-basis: 11.3%;
+}
+.calculator-buttons > .calculator-numbers {
+    flex-basis: 70%;
 }
