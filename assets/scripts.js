@@ -4,6 +4,7 @@ const clearBtn = document.querySelector('.btn-clear');
 const numberButtons = document.querySelectorAll('.calculator-numbers button');
 const operatorButtons = document.querySelectorAll('.calculator-operator button');
 const display = document.querySelector('.calculator-screen span');
+const backspaceBtn = document.querySelector('.btn-backspace');
 
 function add(a, b){
     return a + b;
@@ -86,12 +87,24 @@ function clearDisplay(){
     needsCleared = false;
 }
 
+function backspace(){
+    let displayArr = display.textContent.split('');
+    displayArr.pop();
+    let newDisplay = displayArr.join('');
+    display.textContent = newDisplay;
+    if((firstNum && operator) || (firstNum === 0 && operator)){
+        secondNum = parseFloat(display.textContent);
+    }
+}
+
 
 numberButtons.forEach(button => button.addEventListener('click', getNumbers));
 
 operatorButtons.forEach(button => button.addEventListener('click', getOperator ));
 
 clearBtn.addEventListener('click', clearDisplay);
+
+backspaceBtn.addEventListener('click', backspace);
 
 equals.addEventListener('click', function(){
     operate(firstNum, secondNum, operator);
