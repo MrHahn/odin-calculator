@@ -3,7 +3,7 @@ const equals = document.querySelector('.equals');
 const clearBtn = document.querySelector('.btn-clear');
 const numberButtons = document.querySelectorAll('.calculator-numbers button');
 const operatorButtons = document.querySelectorAll('.calculator-operator button');
-let display = document.querySelector('.calculator-screen span');
+const display = document.querySelector('.calculator-screen span');
 
 function add(a, b){
     return a + b;
