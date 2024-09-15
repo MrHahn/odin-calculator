@@ -97,6 +97,14 @@ function backspace(){
     }
 }
 
+function keyboardSupport(e){
+    let keyPressed = e.key;
+    if(keyPressed >= '0' && keyPressed <= '9'){
+        let btn = document.querySelector('.btn' + e.key);
+        btn.click();
+    }
+}
+
 
 numberButtons.forEach(button => button.addEventListener('click', getNumbers));
 
@@ -109,3 +117,5 @@ backspaceBtn.addEventListener('click', backspace);
 equals.addEventListener('click', function(){
     operate(firstNum, secondNum, operator);
 })
+
+window.addEventListener('keydown', keyboardSupport);
