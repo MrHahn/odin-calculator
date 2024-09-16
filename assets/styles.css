@@ -6,35 +6,37 @@
 .calculator-buttons {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    background: #e2e2e2;
 }
 .calculator-buttons .calculator-numbers {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    flex-basis: 76%;
+    gap: 1px;
 }
 .calculator-buttons .calculator-numbers button {
     flex-basis: 33%;
     width: 33%;
+    background: white;
 }
 .calculator-buttons .calculator-operator {
     display: flex;
     flex-direction: column;
+    flex-basis: 25%;
+    gap: 1px;
 }
-.calculator-numbers button,
-.calculator-operator button {
-    height: 26px;
-}
+
 .calculator-screen {
     border: 1px solid;
-    margin: 0 38px;
     height: 40px;
     font-size: 36px;
     text-align: right;
+    padding: 30px 10px;
 }
 .calculator-misc {
-    margin: 0 38px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,9 +44,27 @@
 .calculator-misc button {
     flex-basis: 50%;
 }
-.calculator-buttons > .calculator-operator {
-    flex-basis: 11.3%;
+
+.calculator button {
+    height: 65px;
+    font-size: 25px;
+    border:none;
+    cursor: pointer;
 }
-.calculator-buttons > .calculator-numbers {
-    flex-basis: 70%;
+.calculator {
+    border: 26px solid #e2e2e2;
+}
+.calculator-operator button,
+button.btn-clear {
+    background: #2eacff;
+    color: white;
+}
+button.btn-backspace,
+.calculator-buttons .calculator-numbers button.equals {
+    background: #595959;
+    color: white;
+}
+.calculator button:hover {
+    background: black !important;
+    color: white;
 }
